@@ -37,6 +37,15 @@ class LinkedList:
             # 3. reassign self.tail to refer to the new Node
             self.tail = new_node
 
+    def add_to_head(self, value):
+        new_node = Node(value)
+        if self.head is None and self.tail is None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.set_next(self.head)
+            self.head = new_node
+
     def remove_head(self):
         # if we have an empty linked list
         if self.head is None and self.tail is None:
@@ -66,7 +75,7 @@ class LinkedList:
         # iterate over your linked list
         current = self.head
 
-        while current.get_next() and current.get_next() is not self.tail:
+        while current.get_next() is not self.tail:
             current = current.get_next()
         # at this point, `current` is the node right before the tail
         # set the tail to be None

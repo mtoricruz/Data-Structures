@@ -20,18 +20,13 @@ class Queue:
         self.storage = LinkedList()
     
     def __len__(self):
-        count = 0
-        current = self.storage.head
-        while current:
-            current = current.get_next()
-            count =- 1
-        return count
-        # return self.size
+        return self.size
 
     def enqueue(self, value):
         # self.storage.append(value)
         # self.size = len(self.storage)
-        return self.storage.add_to_head(value)
+        self.storage.add_to_tail(value)
+        self.size += 1
 
     def dequeue(self):
         # self.size = len(self.storage)
@@ -40,3 +35,13 @@ class Queue:
         # else:
         #     return self.storage.remove(self.storage[0])
         # Get's 1 error with 100 != 105
+        # check if list is empty
+        if self.size > 0:
+            # remove the head and store it on a value
+            removed_head = self.storage.remove_head()
+            # decrement the size by 1
+            self.size -= 1
+            # return removed_head
+            return removed_head
+        else:
+            return

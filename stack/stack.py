@@ -19,26 +19,24 @@ class Stack:
         # self.storage = []
 
     def __len__(self):
-        count = 0
-        current = self.storage.head
-        while current:
-            current = current.get_next()
-            count =+ 1
-        return count
-        # return self.size
+        return self.size
 
     def push(self, value):
         # make a new node that has the inputted value
-        return self.storage.add_to_tail(value)
+        self.storage.add_to_tail(value)
         # self.storage.append(value)
         # self.size = len(self.storage)
+        self.size += 1
 
     def pop(self):
-        return self.storage.remove_tail()
         # if self.size == 0:
         #     return None
         # else:
         #     popped = self.storage.pop()
         #     self.size = len(self.storage)
         #     return popped
+        if self.size > 0:
+            popped_item = self.storage.remove_tail()
+            self.size -= 1
+            return popped_item
         
