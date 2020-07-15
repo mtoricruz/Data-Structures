@@ -157,3 +157,9 @@ class DoublyLinkedList:
             current = current.next     
         # return max found
         return max
+
+
+ H          T
+[1 -> 2 -> 1]
+ s
+ m

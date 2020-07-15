@@ -10,19 +10,56 @@ This part of the project comprises two days:
    on the BSTNode class.
 """
 class BSTNode:
-    def __init__(self, value):
+    def __init__(self, value=None):
         self.value = value
         self.left = None
         self.right = None
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
+        # if newnode < node.value
+        if value < self.value:
+        #    if left doesn't exist
+            if self.left is None:
+        #        create left
+                self.left = BSTNode(value)
+        #       else
+            else:
+        #           leftnode.insert(value)
+                self.left.insert(value)
+        #   if >=
+        else:
+        #       if right doesn't exist
+            if self.right is None:
+        #           create right
+                self.right = BSTNode(value)
+        #       else
+            else:
+        #           rightnode.insert(value)
+                self.right.insert(value)
 
-    # Return True if the tree contains the value
-    # False if it does not
     def contains(self, target):
-        pass
+        if self.value == target:
+            return True
+        if target < self.value:
+            if self.left is None:
+                return False
+            else:
+                return self.left.contains(target)
+        else:
+            if self.right is None:
+                return False
+            else:
+                return self.right.contains(target)
+        # if node is None
+        # return false
+        # elif node.value == findvalue
+        #   return true
+        # else
+        #   if find < node.value:
+        #      contains on node.left
+        #   else
+        #      contains on node.right:
 
     # Return the maximum value found in the tree
     def get_max(self):
@@ -37,7 +74,7 @@ class BSTNode:
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
-        pass
+        pass 
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
