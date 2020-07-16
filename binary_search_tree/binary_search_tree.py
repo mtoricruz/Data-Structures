@@ -79,17 +79,56 @@ class BSTNode:
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
-        pass 
+        # P - Traverse BST on left side
+        # as long as a left side exist
+        # print root value
+        if self.left is not None:
+            self.left.in_order_print(node)
+        print(self.value)
+        if self.right is not None:
+            self.right.in_order_print(node)
+         
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
-        pass
+        if node is None:
+            return
+        # P - Create queue
+        queue = []
+        # add root to queue
+        queue.append(node)
+        # while queue is not empty
+        while len(queue) > 0:
+            # node = pop head of queue
+            node = queue.pop(0)
+            # DO THE THING YOU NEED (in this case it is to print)
+            print(node)
+            # add children of node to queue
+            if node.left is not None:
+                queue.append(node.left)
+            if node.right is not None:
+                queue.append(node.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
-        pass
+        # P - Create stack
+        stack = []
+        # add root to stack
+        stack.append(node)
+        # while stack is not empty
+        while len(stack) > 0:
+            # node = pop top off the stack
+            node = stack.pop(0)
+            # DO THE THING YOU NEED (in this case it is to print)
+            print(node)
+            # add children of node to stack
+            if node.left is not None:
+                stack.append(node.left)
+            if node.right is not None:
+                queue.append(node.right)
+        
 
     # Stretch Goals -------------------------
     # Note: Research may be required
